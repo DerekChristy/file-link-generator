@@ -1,0 +1,40 @@
+<div class="px-5">
+  <div class="text-center pt-5">
+    <!-- <h2>File Share</h2> -->
+  </div>
+  <div class="mt-5 px-3">
+    <form [formGroup]="form" class="bg-dark text-light p-5 rounded">
+      <div class="h2 mat-primary text-center mb-4">Login</div>
+      <mat-form-field class="w-100">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+        <mat-error>Enter a valid email</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-100">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="passwd" />
+        <mat-error>Enter password (Min. 8 characters)</mat-error>
+      </mat-form-field>
+      <div *ngIf="invalidInfo" class="alert alert-warning" role="alert">
+        Invalid email or password
+      </div>
+      <div class="row py-4">
+        <button
+          mat-flat-button
+          class="mx-auto w-50"
+          color="primary"
+          (click)="login()"
+        >
+          Sign In
+        </button>
+      </div>
+    </form>
+    <div class="text-center mt-5">
+      <a routerLink="/auth/register">Forgot password?</a>
+    </div>
+    <div class="text-center mt-3">
+      <span>Don't have an account? </span> <a routerLink="/auth/register">Sign Up</a>
+    </div>
+  </div>
+</div>

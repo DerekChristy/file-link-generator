@@ -1,0 +1,32 @@
+<main>
+  <div class="container">
+    <div class="h5 my-3">Upload file to generate share link</div>
+    <div class="card py-3">
+      <div class="text-center">
+        <button mat-raised-button (click)="upload.click()">Browse files</button>
+        <input
+          #upload
+          type="file"
+          class="d-none"
+          (change)="handleFiles($event.target)"
+        />
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <div *ngIf="file">
+        {{ file.name }}
+        <button
+          *ngIf="!link"
+          mat-flat-button
+          color="accent"
+          (click)="generateLink()"
+        >
+          Generate link
+        </button>
+        <div *ngIf="link" class="alert alert-success">
+         <a href="{{ link }}" target="_blank">{{ link }}</a> 
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
