@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  server: 'https://file-share-0vk5.onrender.com'
 };
